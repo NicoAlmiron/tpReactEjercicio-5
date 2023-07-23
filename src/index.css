@@ -1,0 +1,4 @@
+body {
+    background-image: radial-gradient( circle at 66.39% 4.96%, #a2b1b3 0, #8ba7ac 12.5%, #739ba6 25%, #578fa0 37.5%, #33829b 50%, #007597 62.5%, #006893 75%, #005c90 87.5%, #00518d 100%);
+    background-attachment: fixed;
+}
