@@ -3,20 +3,26 @@ import { Button, Form } from "react-bootstrap";
 import ListaTareas from "./ListaTareas";
 
 const FormularioTareas = () => {
+  const tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+
   const [tarea, setTarea] = useState("");
-  const [listaTareas, setlistaTareas] = useState([]);
+  const [listaTareas, setListaTareas] = useState(tareas);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setlistaTareas([...listaTareas, tarea]);
+    setListaTareas([...listaTareas, tarea]);
     setTarea("");
+    tareas.push(tarea);
+    localStorage.setItem("tareas", JSON.stringify(tareas));
   };
 
   const borrarTarea = (index) => {
     let listaTareasFiltrada = listaTareas.filter(
       (itemListaTarea, i) => index !== i
     );
-    setlistaTareas(listaTareasFiltrada);
+    setListaTareas(listaTareasFiltrada);
+    tareas.splice(index, 1);
+    localStorage.setItem("tareas", JSON.stringify(tareas));
   };
 
   return (
